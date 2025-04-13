@@ -36,6 +36,7 @@ app.use("/api/courses", courseRoutes);
 app.use("/api/orders", orderRoutes);
 
 // Wipe all data and reseed
+//TODO: add administator access
 app.post("/api/wipe", async (req, res) => {
   try {
     const result = await wipeAndReseed();
