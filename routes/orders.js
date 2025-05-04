@@ -8,6 +8,7 @@ const auth = require("../middleware/auth");
 router.get("/", auth, async (req, res) => {
   try {
     const orders = await Order.find()
+      .populate("user", "firstName lastName email")
       .populate("courses", "title price");
     res.json(orders);
   } catch (error) {
